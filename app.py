@@ -189,12 +189,12 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             st.session_state['microphone_allowed'] = False
 
         if not st.session_state['microphone_allowed']:
-            if st.button('Allow Microphone'):
+            # if st.button('Allow Microphone'):
                 # Attempt to access the microphone
-                dummy_audio_bytes = audio_recorder(pause_threshold=2.0, sample_rate=41_000)
-                if dummy_audio_bytes:
-                    st.session_state['microphone_allowed'] = True
-                    st.success("Microphone access granted. You can now start recording.")
+            dummy_audio_bytes = audio_recorder(pause_threshold=2.0, sample_rate=41_000)
+            if dummy_audio_bytes:
+                st.session_state['microphone_allowed'] = True
+                st.success("Microphone access granted. You can now start recording.")
         else:
 
             # if st.button('Start Recording'):
