@@ -193,7 +193,7 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             if dummy_audio_bytes:
                 st.session_state['microphone_allowed'] = True
                 st.success("Microphone access granted. You can now start recording.")
-                st.experimental_rerun()  # Rerun the script to update the UI
+                # st.experimental_rerun()  # Rerun the script to update the UI
 
         else:
             # audio_bytes = audio_recorder()
