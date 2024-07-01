@@ -193,14 +193,14 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             if dummy_audio_bytes:
                 st.session_state['microphone_allowed'] = True
                 st.success("Microphone access granted. You can now start the cross examination.")
-        # else:
+        else:
                 # audio_bytes = audio_recorder()
-                audio_bytes = audio_recorder(text = 'Ask Question', 
-                                                   recording_color="#fc3903",
-                                                    neutral_color="#03fc1c",
-                                                    icon_name="microphone",
-                                                    icon_size="4x",
-                                                   pause_threshold=2.0, sample_rate=41_000)
+            audio_bytes = audio_recorder(text = 'Ask Question', 
+                                               recording_color="#fc3903",
+                                                neutral_color="#03fc1c",
+                                                icon_name="microphone",
+                                                icon_size="4x",
+                                               pause_threshold=2.0, sample_rate=41_000)
             
             if audio_bytes:
                 st.audio(audio_bytes, format="audio/wav")
