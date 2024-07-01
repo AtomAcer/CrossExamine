@@ -193,8 +193,8 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             if dummy_audio_bytes:
                 st.session_state['microphone_allowed'] = True
                 st.success("Microphone access granted. You can now start recording.")
-        # else:
-        finally:
+                
+        if 'microphone_allowed' in st.session_state:
             # audio_bytes = audio_recorder()
             audio_bytes = audio_recorder(text = 'Ask Question', 
                                                recording_color="#fc3903",
