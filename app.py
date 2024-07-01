@@ -252,7 +252,7 @@ def main():
     # vectordb = initialize_vectordb()
     retriever = initialize_BM25Retriever()
 
-    run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_chain, voice_key, audio_bytes)
+    run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_chain, voice_key)
 
 if __name__ == '__main__':
     main()
