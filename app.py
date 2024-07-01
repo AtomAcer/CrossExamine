@@ -185,13 +185,17 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
         chat_history = []
 
         # Adding a checkbox to ensure user is ready to start recording
-        if 'recording_started' not in st.session_state:
-            st.session_state['recording_started'] = False
+        if 'microphone_allowed' not in st.session_state:
+            st.session_state['microphone_allowed'] = False
 
-        if st.button('Start Recording'):
-            st.session_state['recording_started'] = True
-        
-        if st.session_state['recording_started']:
+        if not st.session_state['microphone_allowed']:
+            if st.button('Allow Microphone'):
+                # Attempt to access the microphone
+                dummy_audio_bytes = audio_recorder(pause_threshold=2.0, sample_rate=41_000)
+                if dummy_audio_bytes:
+                    st.session_state['microphone_allowed'] = True
+                    st.success("Microphone access granted. You can now start recording.")
+        else:
 
             # if st.button('Start Recording'):
             # audio_bytes = audio_recorder()
