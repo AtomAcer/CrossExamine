@@ -164,7 +164,7 @@ def initialize_BM25Retriever():
     else:
         return load_BM25Retriever(collection_name_str)
 
-def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_chain, voice_key, audio_bytes):
+def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_chain, voice_key):
     """
     Run the chatbot, handling user input and generating responses.
     
