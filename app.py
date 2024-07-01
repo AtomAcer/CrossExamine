@@ -191,11 +191,11 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
         if not st.session_state['microphone_allowed']:
             # if st.button('Allow Microphone'):
                 # Attempt to access the microphone
-            dummy_audio_bytes = audio_recorder(text = 'Click Icon', 
-                                               recording_color="#e8b62c",
-                                                neutral_color="#6aa36f",
-                                                icon_name="user-tie",
-                                                icon_size="6x",
+            dummy_audio_bytes = audio_recorder(text = 'Allow Microphone Access', 
+                                               recording_color="#fc3903",
+                                                neutral_color="#03fc1c",
+                                                icon_name="microphone",
+                                                icon_size="4x",
                                                pause_threshold=2.0, sample_rate=41_000)
             if dummy_audio_bytes:
                 st.session_state['microphone_allowed'] = True
