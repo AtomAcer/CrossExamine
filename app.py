@@ -198,7 +198,7 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
         else:
             # audio_bytes = audio_recorder()
             audio_bytes = audio_recorder(text = 'Ask Question', 
-                                                icon_size="2x",
+                                                icon_size="4x",
                                                pause_threshold=2.0, sample_rate=41_000)
         
             if audio_bytes:
