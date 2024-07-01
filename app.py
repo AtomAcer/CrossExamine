@@ -192,7 +192,7 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             dummy_audio_bytes = audio_recorder(pause_threshold=0, sample_rate=41_000)
             if dummy_audio_bytes:
                 st.session_state['microphone_allowed'] = True
-                st.success("Microphone access granted. You can now start recording.")
+                st.success("Microphone access granted. Please click on the icon again and say "START"")
                 # st.experimental_rerun()  # Rerun the script to update the UI
 
         else:
