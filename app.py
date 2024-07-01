@@ -184,31 +184,32 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
         rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
         chat_history = []
 
-        # audio_bytes = audio_recorder()
-        audio_bytes = audio_recorder(pause_threshold=2.0, sample_rate=41_000)
-        if audio_bytes:
-            st.audio(audio_bytes, format="audio/wav")
-
-        # if st.button('Ask Question'):
-            transcript = record_and_transcribe(client, audio_bytes)
-            user_input = transcript
-
-            ai_msg_dict = rag_chain.invoke({"input": user_input, "chat_history": chat_history})
-            response = ai_msg_dict["answer"]
-            chat_history.extend([HumanMessage(content=user_input), response])
-
-            create_output_speech(client, response, voice=voice_dict[voice_key])
-
-            conversation_history = st.session_state.get('conversation_history', [])
-            conversation_history.append(('You', user_input))
-            conversation_history.append(('Bot', response))
-            st.session_state['conversation_history'] = conversation_history
-
-            for role, text in conversation_history:
-                st.markdown(f'**{role}**: {text}')
-
-            audio_base64 = convert_audio_to_base64('speech.wav')
-            st.markdown(f'<audio controls autoplay><source src="data:audio/wav;base64,{audio_base64}" type="audio/wav"></audio>', unsafe_allow_html=True)
+        if st.button('Start Recording'):
+            # audio_bytes = audio_recorder()
+            audio_bytes = audio_recorder(pause_threshold=2.0, sample_rate=41_000)
+            if audio_bytes:
+                st.audio(audio_bytes, format="audio/wav")
+    
+            # if st.button('Ask Question'):
+                transcript = record_and_transcribe(client, audio_bytes)
+                user_input = transcript
+    
+                ai_msg_dict = rag_chain.invoke({"input": user_input, "chat_history": chat_history})
+                response = ai_msg_dict["answer"]
+                chat_history.extend([HumanMessage(content=user_input), response])
+    
+                create_output_speech(client, response, voice=voice_dict[voice_key])
+    
+                conversation_history = st.session_state.get('conversation_history', [])
+                conversation_history.append(('You', user_input))
+                conversation_history.append(('Bot', response))
+                st.session_state['conversation_history'] = conversation_history
+    
+                for role, text in conversation_history:
+                    st.markdown(f'**{role}**: {text}')
+    
+                audio_base64 = convert_audio_to_base64('speech.wav')
+                st.markdown(f'<audio controls autoplay><source src="data:audio/wav;base64,{audio_base64}" type="audio/wav"></audio>', unsafe_allow_html=True)
 
 def main():
     """
