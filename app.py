@@ -200,7 +200,7 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
             audio_bytes = audio_recorder(text = 'Ask Question', 
                                                recording_color="#fc3903",
                                                 neutral_color="#03fc1c",
-                                                icon_name="microphone",
+                                                icon_name="user-tie",
                                                 icon_size="4x",
                                                pause_threshold=2.0, sample_rate=41_000)
         
