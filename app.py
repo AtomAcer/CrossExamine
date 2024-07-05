@@ -72,9 +72,9 @@ def get_system_prompts():
     contextualize_q_system_prompt = (
         """Given a chat history and the latest user question which might reference context in the chat history, 
         formulate a standalone question which can be understood without the chat history. 
-        If the chat history is limited or is not there, rephrase the question and try to add as much context
-        as possible to help find the right answer. 
-        Do NOT answer the question, just reformulate and make it more clear if needed, otherwise return it as is.
+        If this is the first question and user asks for the name, add lines such as "state your name for the record",
+        "confirm your name", etc to help find the correct response.
+        Do NOT answer the question, just reformulate and make it more clear where needed.
         You can also rephrase the original question into multiple questions when needed, seperated by '?'"""
     )
 
