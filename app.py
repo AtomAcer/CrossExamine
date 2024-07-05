@@ -54,7 +54,7 @@ def initialize_memory():
     Output:
         memory (ConversationSummaryBufferMemory): Initialized ConversationSummaryBufferMemory object
     """
-    summarizer_llm = ChatOpenAI(temperature=0, model="gpt-4o")  # type: ignore
+    summarizer_llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")  # type: ignore
     return ConversationSummaryBufferMemory(
         memory_key="chat_history",
         return_messages=True,
