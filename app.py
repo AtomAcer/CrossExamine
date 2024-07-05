@@ -75,11 +75,6 @@ def get_system_prompts():
         Your rephrased question will be used for vector embedding retrieval, rephrase the question in a way
         that allows the vector to provide maximum match possibility. 
         Do NOT answer the question.
-        
-        For example: If the user question is "What is your name"
-
-        Return: "What is your name? For the record confirm your name? Can you tell me your name"
-        
         """
     )
 
