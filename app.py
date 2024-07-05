@@ -73,8 +73,15 @@ def get_system_prompts():
         """Given a chat history of a cross examination of a witness and the latest user question which might reference 
         context in the chat history, 
         formulate a standalone question which can be understood without the chat history. 
-        If the user asks the witness for their name, rephrase the question to "For the record, confirm your name".
-        Do NOT answer the question."""
+        You rephrased question will be used for vector embedding retrieval, rephrase the question in a way
+        that allows the vector to provide maximum match possibility. 
+        Do NOT answer the question.
+        
+        For example: If the user question is "What is your name"
+
+        Rephrase that to: "What is your name? For the record confirm your name? Can you tell me your name"
+        
+        """
     )
 
     qa_system_prompt = (
