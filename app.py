@@ -78,7 +78,7 @@ def get_system_prompts():
         
         For example: If the user question is "What is your name"
 
-        Rephrase that to: "What is your name? For the record confirm your name? Can you tell me your name"
+        Return: "What is your name? For the record confirm your name? Can you tell me your name"
         
         """
     )
