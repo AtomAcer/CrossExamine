@@ -73,7 +73,7 @@ def get_system_prompts():
         """Given a chat history and the latest user question which might reference context in the chat history, 
         formulate a standalone question which can be understood without the chat history. 
         If the user asks for the name, rephrase the question to "For the record, confirm your name".
-        Do NOT answer the question, just reformulate and make it more clear where needed.
+        Do NOT answer the question.
         You can also rephrase the original question into multiple questions when needed, seperated by '?'"""
     )
 
