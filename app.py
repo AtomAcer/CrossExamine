@@ -74,8 +74,7 @@ def get_system_prompts():
         context in the chat history, 
         formulate a standalone question which can be understood without the chat history. 
         If the user asks the witness for their name, rephrase the question to "For the record, confirm your name".
-        Do NOT answer the question.
-        You can also rephrase the original question into multiple questions when needed, seperated by '?'"""
+        Do NOT answer the question."""
     )
 
     qa_system_prompt = (
