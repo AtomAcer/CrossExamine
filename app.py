@@ -186,17 +186,6 @@ def run_chatbot(client, llm, retriever, contextualize_q_prompt, question_answer_
         rag_chain = create_retrieval_chain(history_aware_retriever, question_answer_chain)
         chat_history = []
 
-        # Adding a checkbox to ensure user is ready to start recording
-        # if 'microphone_allowed' not in st.session_state:
-        #     st.session_state['microphone_allowed'] = False
-
-        # if not st.session_state['microphone_allowed']:
-        #     dummy_audio_bytes = audio_recorder(pause_threshold=1.0, sample_rate=41_000)
-        #     if dummy_audio_bytes:
-        #         st.session_state['microphone_allowed'] = True
-        #         st.success("Microphone access granted. Please click on the icon again and say START")
-        #         # st.experimental_rerun()  # Rerun the script to update the UI
-
         # else:
             # audio_bytes = audio_recorder()
         audio_bytes = audio_recorder(text = 'Ask Question', 
