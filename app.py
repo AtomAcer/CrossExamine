@@ -71,9 +71,8 @@ def get_system_prompts():
     """
     contextualize_q_system_prompt = (
         """Given a chat history of a cross examination of a witness and the latest user question which might reference 
-        context in the chat history, 
-        formulate a standalone question which can be understood without the chat history. 
-        You rephrased question will be used for vector embedding retrieval, rephrase the question in a way
+        context in the chat history, formulate a standalone question which can be understood without the chat history. 
+        Your rephrased question will be used for vector embedding retrieval, rephrase the question in a way
         that allows the vector to provide maximum match possibility. 
         Do NOT answer the question.
         
