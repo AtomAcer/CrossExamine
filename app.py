@@ -54,7 +54,7 @@ def initialize_memory():
     Output:
         memory (ConversationSummaryBufferMemory): Initialized ConversationSummaryBufferMemory object
     """
-    summarizer_llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")  # type: ignore
+    summarizer_llm = ChatOpenAI(temperature=0, model="gpt-4o")  # type: ignore
     return ConversationSummaryBufferMemory(
         memory_key="chat_history",
         return_messages=True,
@@ -70,7 +70,8 @@ def get_system_prompts():
         Tuple (contextualize_q_system_prompt, qa_system_prompt): System prompts for contextualization and QA response generation
     """
     contextualize_q_system_prompt = (
-        """Given a chat history and the latest user question which might reference context in the chat history, 
+        """Given a chat history of a cross examination and the latest user question which might reference 
+        context in the chat history, 
         formulate a standalone question which can be understood without the chat history. 
         If the user asks the witness for their name, rephrase the question to "For the record, confirm your name".
         Do NOT answer the question.
